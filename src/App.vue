@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    {{msg}}
-    <h3>Hello</h3>
-    {{sayHello("Morning")}}
-   <students/>
-   <Employee/>
-    <h2>{{hello}}</h2>
+    <Header/>
+    <Content/>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import students from './Students.vue';
-import Employee from './Employee';
+import Header from './Header';
+import Content from './Content';
+import Footer from './Footer';
+
 export default {
   name: 'app',
   data () {
@@ -23,8 +22,9 @@ export default {
     }
   },
   components:{
-    students,
-    Employee,
+    Header,
+    Content,
+    Footer,
   },
   methods:{
     sayHello(dayTime){
@@ -39,9 +39,36 @@ export default {
 }
 </script>
 
-<style>
-h3{
-  color: green;
-  font-size: 60px;
+<style lang="scss">
+body{
+  margin: 0px;
+  header{
+    width: 100%;
+    background-color: cadetblue;
+    height: 100px;
+    margin: 0px;
+    text-align: center;
+    color:#ffffff;
+    padding: 10px;
+    box-shadow:5px 5px 2px 2px grey;
+  }
+  h1{
+    margin: 0px;
+  }
+  .container{
+    padding: 1%;
+    p{
+      font-size:12px;
+      color:red;
+    }
+  }
+  footer{
+    width: 100%;
+    background-color: coral;
+    margin-bottom:0px; 
+    text-align:center;
+    padding: 5px;
+  }
 }
+
 </style>

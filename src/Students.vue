@@ -1,30 +1,24 @@
 <template>
-  <div id="app">
-    {{msg}}
-    <h3>Hello</h3>
-    {{sayHello("Morning")}}
-   <students/>
-   <Employee/>
-    <h2>{{hello}}</h2>
+  <div >
+    <ul>
+      <li v-for="student in students">
+          {{student}}
+      </li>
+    </ul>
+    <h3>{{hello}} student</h3>
   </div>
 </template>
 
 <script>
-import students from './Students.vue';
-import Employee from './Employee';
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your First Program',
+     
       students:['arif','shah','sahab'],
       firstName:"Arif",
       lastName:"Shah"
     }
-  },
-  components:{
-    students,
-    Employee,
   },
   methods:{
     sayHello(dayTime){
@@ -39,9 +33,9 @@ export default {
 }
 </script>
 
-<style>
-h3{
-  color: green;
-  font-size: 60px;
-}
+<style scoped>
+ h3{
+     color: red;
+     font-size: 35px;
+ }
 </style>

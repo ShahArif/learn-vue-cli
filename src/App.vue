@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <Header/>
-    <Content name="arif Shah" v-bind:socialNetworks="socialNetworks"/>
+    <Content name="arif Shah" 
+       v-bind:socialNetworks="socialNetworks"
+       author="Master Mind" 
+       v-bind:project="{name:'Learning',Level:'Easy'}"
+       v-bind:isActive="true"
+       />
     <Footer/>
   </div>
 </template>

@@ -1,36 +1,23 @@
 <template>
     <div>
-        <h2>Students Merit List</h2>
-        <p>{{message}}</p>
-        <ul>
-            <li v-for="student in students">
-                {{student}}
-            </li>
-        </ul>
-        <button v-on:click="updateMessage">Update Message</button>
+        <h3>{{message}}</h3>
+       <button v-on:click="updateMessage">Update Message From Child </button>
     </div>
 </template>
 <script>
 export default {
-    props:{
-        students:{
-            type: Array
-        },
-        message:{
-            type: String,
-        }
-    },
+    props:["message"],
     data(){
         return{
-            message:'Its Students Merit List Here'
+            
         }
     },
     methods:{
         updateMessage(){
-            this.message="Message Has been Changed or Updated"
+            // this.message ="Message Updated From Child"
+            this.$emit("updateMessageVariable","Message Updated From Child");
         }
     }
-    
 }
 </script>
 

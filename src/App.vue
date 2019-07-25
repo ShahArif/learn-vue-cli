@@ -1,66 +1,33 @@
 <template>
   <div id="app">
     <Header/>
-    <Content name="arif Shah" 
-       v-bind:socialNetworks="socialNetworks"
-       author="Master Mind" 
-       v-bind:students="students"
-       v-bind:message="SomeMessage"
-       v-bind:project="{name:'Learning',Level:'Easy'}"
-       v-bind:isActive="true"
-       
-      />
-      <Students v-bind:students="students"  v-bind:message="SomeMessage"/>
+      <Students v-bind:message="msg" v-on:updateMessageVariable="updateMessagefn($event)"></Students>
     <Footer/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header';
-import Content from './components/Content';
 import Footer from './components/Footer';
-import Students from './components/Students';
+import Students from './components/Students.vue'
 
 export default {
-  name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your First Program',
-      students:['arif','shah','sahab'],
-      firstName:"Arif",
-      lastName:"Shah",
-      SomeMessage:"This is Basic Message",
-      socialNetworks:[
-          {title:"Facebook", link:"http://facebook.com", id:0},
-          {title:"Github", link:"http://Github.com",id:1},
-          {title:"Twitter", link:"http://twitter.com",id:2},
-          {title:"Linkedin", link:"http://linkedin.com",id:3},
-      ],
-      students:[
-        "Arif",
-        "Zahid",
-        "Umer",
-        "Asif",
-        "Arfat"
-      ]
+      msg: 'Message From Parent to Child Component',
     }
   },
   components:{
     Header,
-    Content,
     Footer,
     Students,
   },
   methods:{
-    sayHello(dayTime){
-      return "Good "+ dayTime;
+    updateMessagefn(newMessage){
+      this.msg = newMessage;
     }
-  },
-  computed:{
-     hello(){
-       return this.firstName+" "+ this.lastName
-     }
   }
+  
 }
 </script>
 

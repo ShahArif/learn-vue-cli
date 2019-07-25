@@ -5,10 +5,12 @@
        v-bind:socialNetworks="socialNetworks"
        author="Master Mind" 
        v-bind:students="students"
+       v-bind:message="SomeMessage"
        v-bind:project="{name:'Learning',Level:'Easy'}"
        v-bind:isActive="true"
+       
       />
-      <Students v-bind:students="students"/>
+      <Students v-bind:students="students"  v-bind:message="SomeMessage"/>
     <Footer/>
   </div>
 </template>
@@ -27,6 +29,7 @@ export default {
       students:['arif','shah','sahab'],
       firstName:"Arif",
       lastName:"Shah",
+      SomeMessage:"This is Basic Message",
       socialNetworks:[
           {title:"Facebook", link:"http://facebook.com", id:0},
           {title:"Github", link:"http://Github.com",id:1},

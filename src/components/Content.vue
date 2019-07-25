@@ -17,6 +17,8 @@
         <ul>
             <li v-for="student in students">{{student}}</li>
         </ul>
+        {{message}}
+        <br>
         <button v-on:click="deleteStudent">Delete Student</button>
     </div>
 </template>
@@ -44,6 +46,9 @@
             },
             students:{
                 type: Array
+            },
+            message:{
+                type:String,
             }
         },
         data(){

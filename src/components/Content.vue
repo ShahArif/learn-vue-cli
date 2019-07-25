@@ -10,9 +10,14 @@
             </li>
         </ul>
         {{sayHello()}}
-        {{author}}
+        <!-- {{author}}
         {{project}}
-        {{isActive}}
+        {{isActive}} -->
+        <h2>Student List</h2>
+        <ul>
+            <li v-for="student in students">{{student}}</li>
+        </ul>
+        <button v-on:click="deleteStudent">Delete Student</button>
     </div>
 </template>
 
@@ -37,6 +42,9 @@
                 type:Boolean,
                 default:false
             },
+            students:{
+                type: Array
+            }
         },
         data(){
             return{
@@ -46,6 +54,9 @@
         methods:{
             sayHello:function(){
                 console.log(this.content);
+            },
+            deleteStudent(){
+                this.students.pop();
             }
         }
         

@@ -4,9 +4,11 @@
     <Content name="arif Shah" 
        v-bind:socialNetworks="socialNetworks"
        author="Master Mind" 
+       v-bind:students="students"
        v-bind:project="{name:'Learning',Level:'Easy'}"
        v-bind:isActive="true"
-       />
+      />
+      <Students v-bind:students="students"/>
     <Footer/>
   </div>
 </template>
@@ -15,6 +17,7 @@
 import Header from './components/Header';
 import Content from './components/Content';
 import Footer from './components/Footer';
+import Students from './components/Students';
 
 export default {
   name: 'app',
@@ -29,6 +32,13 @@ export default {
           {title:"Github", link:"http://Github.com",id:1},
           {title:"Twitter", link:"http://twitter.com",id:2},
           {title:"Linkedin", link:"http://linkedin.com",id:3},
+      ],
+      students:[
+        "Arif",
+        "Zahid",
+        "Umer",
+        "Asif",
+        "Arfat"
       ]
     }
   },
@@ -36,6 +46,7 @@ export default {
     Header,
     Content,
     Footer,
+    Students,
   },
   methods:{
     sayHello(dayTime){

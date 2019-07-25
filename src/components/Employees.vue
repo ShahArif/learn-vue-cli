@@ -1,10 +1,10 @@
 <template>
     <div>
-       <h1>Employee: {{message}}</h1>
+        <h2>{{message}}</h2>
     </div>
 </template>
 <script>
-import {EventBus} from '../main';
+
 export default {
    
     data(){
@@ -12,13 +12,16 @@ export default {
             message:"Default Message"
         }
     },
-    methods:{
-       
+    beforeMount(){
+        console.log('Its Running before Mounts');
+        // alert('Before Mount');
+        // this.message = "Before Mount Messsage";
     },
     mounted(){
-        EventBus.$on("emittedData", data=>{
-            this.message = data;
-        });
+         console.log('Its Running After Mounts');
+            // alert('After Mounted');
+           
+            this.message = "After Mount Messsage";
     }
 }
 </script>

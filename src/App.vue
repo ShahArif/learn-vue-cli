@@ -1,7 +1,7 @@
 <template>
   <div>
-    <student></student>
-    <Employees></Employees>
+    <Students/>
+    <Employees/>
   </div>
 </template>
 
@@ -16,11 +16,16 @@ export default {
     }
   },
   components:{
-   "student":Students,
-   Employees,
+    Students,
+    Employees,
+  },  
+  beforeCreate(){
+      console.log('Its is Before Initializing Data In Data Object');
+      alert("Before Created");
   },
-  methods:{
-
+  created(){
+      console.log('After Initializing Data In Data Object');
+      alert("After Created");
   }
 }
 </script>

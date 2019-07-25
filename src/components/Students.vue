@@ -1,21 +1,21 @@
 <template>
     <div>
-        <h3>{{message}}</h3>
-       <button v-on:click="updateMessage">Update Message From Child </button>
+        <button v-on:click="passData()">Click Here to Send Data</button>
     </div>
 </template>
 <script>
+import {EventBus} from '../main'
 export default {
-    props:["message"],
+   
     data(){
         return{
             
         }
     },
     methods:{
-        updateMessage(){
-            // this.message ="Message Updated From Child"
-            this.$emit("updateMessageVariable","Message Updated From Child");
+        passData(){
+            console.log('This is simple messsage passed');
+            EventBus.$emit("emittedData","This is simple messsage passed");
         }
     }
 }

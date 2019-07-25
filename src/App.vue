@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <Content/>
+    <Content name="arif Shah" v-bind:socialNetworks="socialNetworks"/>
     <Footer/>
   </div>
 </template>
@@ -18,7 +18,13 @@ export default {
       msg: 'Welcome to Your First Program',
       students:['arif','shah','sahab'],
       firstName:"Arif",
-      lastName:"Shah"
+      lastName:"Shah",
+      socialNetworks:[
+          {title:"Facebook", link:"http://facebook.com", id:0},
+          {title:"Github", link:"http://Github.com",id:1},
+          {title:"Twitter", link:"http://twitter.com",id:2},
+          {title:"Linkedin", link:"http://linkedin.com",id:3},
+      ]
     }
   },
   components:{

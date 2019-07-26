@@ -1,15 +1,30 @@
 <template>
-  <div>
-    <!-- Use <component> tag to use dynamic components -->
-      <!-- is="name of the component" -->
-    <!-- <component is="Students"></component> -->
-    <!-- Use <keep-alive> tag to preserve the values -->
-      <keep-alive>
-        <component v-bind:is="component"></component>
-      </keep-alive>
-    <button v-on:click="component = 'Students'">Student Form</button>
-    <button v-on:click="component = 'Employee'">Employee Form</button>
-  </div>
+   <div>
+        <h3>This is simple Form</h3>
+        <h4>{{message}}</h4>
+        <slot/>
+        <h3>Employee Form</h3>
+        <form>
+            <p>
+            <label>Name :</label>
+            <input type="text" name="name"  v-model.lazy="employee.name" placeholder="Enter your name">
+            </p>
+            <p>
+            <label>Email :</label>
+            <input type="email" name="email" v-model.lazy="employee.email" placeholder="Enter your name">
+            </p>
+            <p>
+            <label>Designation : </label>
+            <input type="text" name="desg" v-model="employee.desg" placeholder="Enter your Designation">
+            </p>
+        </form>
+
+        <div class="data-preview">
+          <h4>Name: {{employee.name}}</h4>
+          <h4>Email : {{employee.email}}</h4>
+          <h4>Designation : {{employee.desg}}</h4>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -19,13 +34,15 @@ import Employees from './components/Employees';
 export default {
   data () {
     return {
-      msg: 'Message From Parent to Child Component',
-      component:"Students",
+      employee:{
+        name:"",
+        email:"",
+        desg:"",
+      }
     }
   },
   components:{
-    Students,
-    "Employee":Employees,
+   
   },  
 }
 </script>

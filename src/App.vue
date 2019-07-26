@@ -1,8 +1,8 @@
 <template>
    
-     <div class="form">
-        <div class="data-preview" v-for="post in posts" :key="post.index" >
-          <h3>{{post.title}}</h3>
+     <div class="form" v-list:orange="'narrow'">
+        <div class="data-preview"  v-for="post in posts" :key="post.index" >
+          <h3 v-format>{{post.title}}</h3>
           <p>{{post.body}}</p>
         </div>
      </div>
@@ -18,11 +18,10 @@ export default {
     }
   },
   methods:{
-    
   }, 
   beforeMount(){
-    this.$http.get("https://jsonplaceholder.typicode.com/posts").then(function(response){
-        //  Response section
+    this.$http.get("https://jsonplaceholder.typicode.com/posts",)
+    .then(function(response){
         this.posts = response.data;
           console.log(data);
        });
@@ -33,7 +32,7 @@ export default {
 <style scoped>
 .form{
   padding: 5%;
-  width: 30%;
+  /* width: 30%; */
   background-color: aqua;
   margin: auto;
   border-radius: 5px;

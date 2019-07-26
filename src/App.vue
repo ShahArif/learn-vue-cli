@@ -10,9 +10,12 @@
 </template>
 
 <script>
-
+import filterMixin from './mixins/filters'
 
 export default {
+  mixins:[
+    filterMixin  //rendering the mixing
+  ],
   data () {
     return {
       posts:[],
@@ -20,24 +23,10 @@ export default {
       title:'Go to google'
     }
   },
-  methods:{
-  },
-  // Local filters
-  // filters:{
-  //   capitalize(value){
-  //     if(!value) return ''
-  //    return value.toUpperCase();
-  //   },
-  //   contentSnippet(value){
-  //     if(!value) return ''
-  //     return value.slice(0,70) + '...'
-  //   }
-  // }, 
   beforeMount(){
     this.$http.get("https://jsonplaceholder.typicode.com/posts",)
     .then(function(response){
         this.posts = response.data;
-          console.log(response.data);
        });
   } 
 }

@@ -3,14 +3,19 @@ import App from './App.vue'
 import VueResource from 'vue-resource'
 
 
-// Custom Global Fliters
-Vue.filter( "capitalize", function(value) {
-        return value.toUpperCase();
-});
-
-Vue.filter( "contentSnippet", function(value) {
-  return value.slice(0,70) + '...'
-});
+// Global mixins
+// Vue.mixin({
+//   filters:{
+//       capitalize(value){
+//         if(!value) return ''
+//        return value.toUpperCase();
+//       },
+//       contentSnippet(value){
+//         if(!value) return ''
+//         return value.slice(0,70) + '...';
+//       }
+//     };
+// });
 
 
 // Custom Global Directives

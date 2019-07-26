@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div class="form">
         <h3>This is simple Form</h3>
         <h4>{{message}}</h4>
         <slot/>
@@ -17,12 +17,24 @@
             <label>Designation : </label>
             <input type="text" name="desg" v-model="employee.desg" placeholder="Enter your Designation">
             </p>
+            <p>
+              <label><input type="checkbox" value="developer" v-model="employee.posts"> Developer</label>
+              <label><input type="checkbox" value="business analyst" v-model="employee.posts">Business Analyst</label>
+              <label><input type="checkbox" value="admin" v-model="employee.posts"> Admin</label>
+              <label><input type="checkbox" value="manager" v-model="employee.posts"> Manager</label>
+            </p>
         </form>
 
         <div class="data-preview">
           <h4>Name: {{employee.name}}</h4>
           <h4>Email : {{employee.email}}</h4>
           <h4>Designation : {{employee.desg}}</h4>
+          <h4>Posts:</h4>
+          <ul>
+            <li v-for="post in employee.posts" :key="post.index">
+              {{post}}
+            <li/>
+          </ul>
         </div>
     </div>
 </template>
@@ -38,6 +50,7 @@ export default {
         name:"",
         email:"",
         desg:"",
+        posts:[],
       }
     }
   },
@@ -47,9 +60,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .form{
   padding: 5%;
+  width: 30%;
   background-color: aqua;
   margin: auto;
   border-radius: 5px;

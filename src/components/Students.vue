@@ -1,13 +1,21 @@
 <template>
     <div>
-        <!-- We can use Name slot for diffrentiating all slots -->
-        <h3>This is simple Student Form</h3> 
-        <!-- <h4>{{message}}</h4> -->
-         <slot name="Std-Header"/>
-        <slot name="Std-paragraph"/>
-        <slot name="form">
-           
-        </slot>
+        <h3>Student Form</h3>
+        <form>
+            <p>
+            <label>Name :</label>
+            <input type="text" name="name" placeholder="Enter your name">
+            </p>
+            
+            <p>
+            <label>Roll No : </label>
+            <input type="text" name="desg" placeholder="Enter your Designation">
+            </p>
+            <p>
+            <label>Email :</label>
+            <input type="email" name="email" placeholder="Enter your name">
+            </p>
+        </form>
     </div>
 </template>
 

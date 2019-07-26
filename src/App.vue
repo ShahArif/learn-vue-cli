@@ -1,17 +1,14 @@
 <template>
   <div>
-    <Students v-bind:message="msg">
-      <!-- We are assigning slot="some name" to identitfy particular tag  -->
-    <h3 slot="Std-Header">This Header Tag for Slot</h3>
-    <p slot="Std-paragraph">This is Paragraph Tag for Slot</p>
-    <div class="form" slot="form">
-        
-    </div>
-    </Students>
-    <Employee>
-      <h1>Employee Header Tag</h1>
-      <a href="Test">Employee Link</a>
-    </Employee>
+    <!-- Use <component> tag to use dynamic components -->
+      <!-- is="name of the component" -->
+    <!-- <component is="Students"></component> -->
+    <!-- Use <keep-alive> tag to preserve the values -->
+      <keep-alive>
+        <component v-bind:is="component"></component>
+      </keep-alive>
+    <button v-on:click="component = 'Students'">Student Form</button>
+    <button v-on:click="component = 'Employee'">Employee Form</button>
   </div>
 </template>
 
@@ -23,6 +20,7 @@ export default {
   data () {
     return {
       msg: 'Message From Parent to Child Component',
+      component:"Students",
     }
   },
   components:{

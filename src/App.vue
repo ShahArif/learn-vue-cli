@@ -1,7 +1,17 @@
 <template>
   <div>
-    <Students/>
-    <Employees/>
+    <Students v-bind:message="msg">
+      <!-- We are assigning slot="some name" to identitfy particular tag  -->
+    <h3 slot="Std-Header">This Header Tag for Slot</h3>
+    <p slot="Std-paragraph">This is Paragraph Tag for Slot</p>
+    <div class="form" slot="form">
+        
+    </div>
+    </Students>
+    <Employee>
+      <h1>Employee Header Tag</h1>
+      <a href="Test">Employee Link</a>
+    </Employee>
   </div>
 </template>
 
@@ -17,16 +27,18 @@ export default {
   },
   components:{
     Students,
-    Employees,
+    "Employee":Employees,
   },  
-  beforeCreate(){
-      console.log('Its is Before Initializing Data In Data Object');
-      alert("Before Created");
-  },
-  created(){
-      console.log('After Initializing Data In Data Object');
-      alert("After Created");
-  }
 }
 </script>
 
+<style>
+.form{
+  padding: 5%;
+  background-color: aqua;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 4px;
+  border:1px solid grey;
+}
+</style>

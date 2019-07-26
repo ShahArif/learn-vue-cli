@@ -1,27 +1,18 @@
 <template>
     <div>
-        <h2>{{message}}</h2>
+        <h3>This is simple Employees Form</h3>
+        <h4>{{message}}</h4>
+        <slot/>
     </div>
 </template>
-<script>
 
+<script>
+props:["message"];
 export default {
-   
     data(){
         return{
-            message:"Default Message"
+            message:"This Message comes from Employees Component"
         }
-    },
-    beforeMount(){
-        console.log('Its Running before Mounts');
-        // alert('Before Mount');
-        // this.message = "Before Mount Messsage";
-    },
-    mounted(){
-         console.log('Its Running After Mounts');
-            // alert('After Mounted');
-           
-            this.message = "After Mount Messsage";
     }
 }
 </script>

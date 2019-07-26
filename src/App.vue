@@ -23,6 +23,15 @@
               <label><input type="checkbox" value="admin" v-model="employee.posts"> Admin</label>
               <label><input type="checkbox" value="manager" v-model="employee.posts"> Manager</label>
             </p>
+            <p>Gender:
+              <label><input type="radio" id="male" value="male" v-model="employee.gender">Male </label>
+              <label><input type="radio" id="female" value="female" v-model="employee.gender">Female</label>
+            </p>
+            <p>
+              <select  v-model="employee.label">
+                <option v-for="label in employee.labels" :key="label.index">{{label}}</option>
+              </select>
+            </p>
         </form>
 
         <div class="data-preview">
@@ -35,6 +44,8 @@
               {{post}}
             <li/>
           </ul>
+          <h4>Gender: {{employee.gender}}</h4>
+          <h4>Label : {{employee.label}}</h4>
         </div>
     </div>
 </template>
@@ -51,6 +62,8 @@ export default {
         email:"",
         desg:"",
         posts:[],
+        gnder:"",
+        labels:["senior","junior","motivator"]
       }
     }
   },

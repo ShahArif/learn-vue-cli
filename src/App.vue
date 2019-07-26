@@ -2,8 +2,9 @@
    
      <div class="form" v-list:orange="'narrow'">
         <div class="data-preview"  v-for="post in posts" :key="post.index" >
-          <h3 v-format>{{post.title}}</h3>
-          <p>{{post.body}}</p>
+          <p v-format>{{ post.title | capitalize }}</p>
+          <p>{{post.body | contentSnippet}}</p>
+          <a v-bind:href="link | capitalize" v-bind:title="title | capitalize">Read More</a>
         </div>
      </div>
 </template>
@@ -15,15 +16,28 @@ export default {
   data () {
     return {
       posts:[],
+      link:'http://www.google.com',
+      title:'Go to google'
     }
   },
   methods:{
-  }, 
+  },
+  // Local filters
+  // filters:{
+  //   capitalize(value){
+  //     if(!value) return ''
+  //    return value.toUpperCase();
+  //   },
+  //   contentSnippet(value){
+  //     if(!value) return ''
+  //     return value.slice(0,70) + '...'
+  //   }
+  // }, 
   beforeMount(){
     this.$http.get("https://jsonplaceholder.typicode.com/posts",)
     .then(function(response){
         this.posts = response.data;
-          console.log(data);
+          console.log(response.data);
        });
   } 
 }

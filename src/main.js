@@ -2,6 +2,18 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
 
+
+// Custom Global Fliters
+Vue.filter( "capitalize", function(value) {
+        return value.toUpperCase();
+});
+
+Vue.filter( "contentSnippet", function(value) {
+  return value.slice(0,70) + '...'
+});
+
+
+// Custom Global Directives
 Vue.directive('list',{
   bind(el ,binding , vnode){
     if(binding.value == "wide"){

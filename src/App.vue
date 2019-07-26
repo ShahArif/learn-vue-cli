@@ -1,34 +1,20 @@
 <template>
-   
-     <div class="form" v-list:orange="'narrow'">
-        <div class="data-preview"  v-for="post in posts" :key="post.index" >
-          <p v-format>{{ post.title | capitalize }}</p>
-          <p>{{post.body | contentSnippet}}</p>
-          <a v-bind:href="link | capitalize" v-bind:title="title | capitalize">Read More</a>
-        </div>
+     <div>
+       <router-view></router-view>
      </div>
 </template>
 
 <script>
-import filterMixin from './mixins/filters'
+
 
 export default {
-  mixins:[
-    filterMixin  //rendering the mixing
-  ],
+  
   data () {
     return {
-      posts:[],
-      link:'http://www.google.com',
-      title:'Go to google'
+     
     }
   },
-  beforeMount(){
-    this.$http.get("https://jsonplaceholder.typicode.com/posts",)
-    .then(function(response){
-        this.posts = response.data;
-       });
-  } 
+  
 }
 </script>
 

@@ -5,6 +5,7 @@
          <router-link to="/">Home</router-link>
          <router-link to="/about">About</router-link>
          <router-link to="/services">Services</router-link>
+         <router-link to="/blogs">Blogs</router-link>
        </p>
        <router-view></router-view>
      </div>

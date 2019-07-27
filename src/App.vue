@@ -1,17 +1,19 @@
 <template>
      <div>
+       <p>
+         <!--router-link is used to create rout links or linking url with page -->
+         <router-link to="/">Home</router-link>
+         <router-link to="/about">About</router-link>
+         <router-link to="/services">Services</router-link>
+       </p>
        <router-view></router-view>
      </div>
 </template>
 
 <script>
-
-
 export default {
-  
   data () {
     return {
-     
     }
   },
   

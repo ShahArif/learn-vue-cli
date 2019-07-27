@@ -7,7 +7,9 @@ import Routes from './routes'
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  routes: Routes
+  routes: Routes,
+  // mode:"hash",  hash is the default mode which includes # in the URL.
+  mode:"history"
 });
 
 Vue.use(VueResource);
